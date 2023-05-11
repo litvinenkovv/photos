@@ -1,26 +1,21 @@
 section {
-  display: table;
-  text-align: center;
-  width: 100%;
-}
-
-.pan-example-button-row {
-  display: table-cell;
-  width: 100%;
+    display: table;
+    text-align: center;
+    width: 100%;
 }
 
 .pan-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
+    margin: 8px 8px 8px 0;
 }
 
 .pan-flex-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .pan-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
+    display: flex;
+    justify-content: center;
+    width: 120px;
 }

@@ -3,7 +3,7 @@ export interface Photos {
   url: string;
 }
 
-export interface Photos2 {
+export interface WebPhotos {
     id: string;
     author: string;
     width: number;

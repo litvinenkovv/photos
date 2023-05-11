@@ -6,14 +6,14 @@ import { ViewComponent } from './pages/view/view.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: "", component: PhotosComponent},
-  {path: "favorites", component: FavoritesComponent},
-  {path: "photos/:id", component: ViewComponent},
-  {path: "**", component: NotFoundComponent},
+    { path: "", component: PhotosComponent },
+    { path: "favorites", component: FavoritesComponent },
+    { path: "photos/:id", component: ViewComponent },
+    { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

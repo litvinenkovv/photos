@@ -1,0 +1,11 @@
+.container {
+    margin: 15px;
+    height: 100%;
+    text-align: center;
+}
+
+img.resize {
+    max-height: calc(100lvh - 150px);
+    max-width: 100%;
+    resize: both;
+}

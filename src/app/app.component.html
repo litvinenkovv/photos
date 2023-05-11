@@ -1,18 +1,21 @@
 <mat-toolbar color="primary" class="mat-elevation-z5">
-  <section>
-      <div class="pan-button-row">
-        <div class="pan-flex-container">
-          <div class="pan-button-container">
-            <a mat-raised-button color="primary" routerLink="/" routerLinkActive="mat-accent" [routerLinkActiveOptions]="{exact:true}">Photos</a>
-          </div>
-          <div class="pan-button-container">
-            <a mat-raised-button color="basic" routerLink="/favorites" routerLinkActive="mat-accent">Favorites</a>
-          </div>
+    <section>
+        <div class="pan-button-row">
+            <div class="pan-flex-container">
+                <div class="pan-button-container">
+                    <a mat-raised-button color="primary" routerLink="/" routerLinkActive="mat-accent"
+                        [routerLinkActiveOptions]="{exact:true}">Photos</a>
+                </div>
+                <div class="pan-button-container"></div>
+                <div class="pan-button-container">
+                    <a mat-raised-button color="basic" routerLink="/favorites"
+                        routerLinkActive="mat-accent">Favorites</a>
+                </div>
+            </div>
         </div>
-      </div>
-  </section>
+    </section>
 </mat-toolbar>
 
 <div>
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

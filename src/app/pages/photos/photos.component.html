@@ -1,17 +1,16 @@
 <div class="container">
-  <mat-grid-list cols="3" rowHeight="1:1" gutterSize="30px">
-    <mat-grid-tile *ngFor="let photo of photos" >
-      <div class="block-inner">
-        <div class="image-container">
-          <img mat-card-image  [src]="photo.url" class="picture" (click)="addToFavorites(photo.id)">
-        </div>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <div class="center">
-    <span>
-      <mat-spinner *ngIf="isLoading"></mat-spinner>
-    </span>
-  </div>
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="30px">
+        <mat-grid-tile *ngFor="let photo of photos">
+            <div class="block-inner">
+                <div class="image-container">
+                    <img mat-card-image [src]="photo.url" class="picture" (click)="addToFavorites(photo.id)">
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div class="center">
+        <span>
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+        </span>
+    </div>
 </div>
-
