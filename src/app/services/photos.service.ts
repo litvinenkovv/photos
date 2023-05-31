@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Photos, WebPhotos } from '../interfaces/photos.interface';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root',
 })
+
 export class PhotosService {
     page = 1;
     isLoading: boolean = false;
     isLoading$: Subject<boolean> = new Subject;
     noDataLoaded$: Subject<void> = new Subject;
+    photos$: BehaviorSubject<Photos[]> = new BehaviorSubject<Photos[]>([]);
     photos: Photos[] = [];
     favorites: Photos[] = [];
 
     constructor(private http: HttpClient) {
         this.loadPhotos();
         this.loadFavoritesFromStorage();
-        this.isLoading$.next(this.isLoading);
+        // this.isLoading$.next(this.isLoading);
+        this.photos$.next(this.photos);
     }
 
     addPhotos(data: WebPhotos[]): void {
+        // this.isLoading = true;
+        // this.isLoading$.next(this.isLoading);
         if (data.length === 0) {
             console.log('No image has been uploaded', this.page);
             this.noDataLoaded$.next();
@@ -30,6 +36,7 @@ export class PhotosService {
                 const newPhoto: Photos = { id: value.id, url: value.download_url };
                 this.photos.push(newPhoto);
             });
+            this.photos$.next(this.photos);
         }
         this.isLoading = false;
         this.isLoading$.next(this.isLoading);
@@ -48,7 +55,7 @@ export class PhotosService {
         setTimeout(() => {
             this.http
                 .get<WebPhotos[]>(
-                    `https://picsum.photos/v2/list?page=${this.page}2&limit=20`
+                    `${environment.API_URL}list?page=${this.page}2&limit=20`
                 )
                 .subscribe((data) => {
                     this.addPhotos(data);
@@ -57,9 +64,16 @@ export class PhotosService {
         }, ms);
     }
 
-    getPhotos(): Photos[] {
-        return this.photos;
-    }
+    // getPhotos$(): Observable<WebPhotos[]> {
+    //     return this.http
+    //             .get<WebPhotos[]>(
+    //                 `${environment.API_URL}list?page=${this.page}2&limit=20`
+    //             );
+    // }
+
+    // getPhotos(): Photos[] {
+    //     return this.photos;
+    // }
 
     addFavorites(id: string): void {
         const index = this.photos.findIndex((value) => value.id === id);

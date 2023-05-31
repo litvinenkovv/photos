@@ -13,6 +13,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+app-picture:hover {
+    cursor: pointer;
+}
+
 .title {
     margin: 5px 0px 5px 0px;
     padding: 5px;
@@ -23,8 +27,8 @@ body {
 .picture {
     max-height: 100%;
     max-width: 100%;
-    overflow: hidden;
-    display: inline-block;
+    // overflow: hidden;
+    // display: inline-block;
 }
 
 img.resize {
@@ -42,11 +46,11 @@ img.resize {
     align-content: center;
 }
 
-.block-inner {
-    width: 100%;
-    display: flex;
-    margin: auto;
-}
+// .block-inner {
+//     // width: 100%;
+//     // display: flex;
+//     // margin: auto;
+// }
 
 .image-container {
     display: block;

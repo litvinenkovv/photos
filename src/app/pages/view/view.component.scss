@@ -1,11 +1,12 @@
 .container {
     margin: 15px;
-    height: 100%;
+    padding-top: 150px;
+    // max-height: calc(100lvh - 350px);
     text-align: center;
-}
-
-img.resize {
-    max-height: calc(100lvh - 150px);
-    max-width: 100%;
-    resize: both;
+    // max-height: calc(100lvh - 150px);
+    // max-width: calc(100lvh - 150px);
+    // object-fit: fill;
+    // &img {
+    //     object-fit: contain;
+    // }
 }

@@ -1,0 +1,3 @@
+<div *ngIf="photo !== undefined">
+    <img [ngSrc]="photo.url" (click)="perfornAction(photo.id)" fill [ngClass]="{'box-cover': classCover, 'box-scale-down': !classCover, box: true}">
+</div>

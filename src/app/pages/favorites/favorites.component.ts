@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Photos } from '../../interfaces/photos.interface';
 import { PhotosService } from '../../services/photos.service';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-favorites',
@@ -13,18 +12,7 @@ export class FavoritesComponent {
 
     favorites: Photos[] = [];
 
-    constructor(private photosService: PhotosService, private router: Router) {
+    constructor(private photosService: PhotosService) {
         this.favorites = this.photosService.getFavorites();
     }
-
-    deleteFavorite(id: string | undefined): void {
-        if (id) {
-            this.photosService.deleteFavorite(id);
-        }
-    }
-
-    openPicture(id: string | undefined): void {
-        this.router.navigate(['photos', id]);
-    }
-
 }

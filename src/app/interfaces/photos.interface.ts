@@ -1,5 +1,5 @@
 export interface Photos {
-  id?: string;
+  id: string;
   url: string;
 }
 

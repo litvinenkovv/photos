@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { PhotosService } from '../../services/photos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Photos } from '../../interfaces/photos.interface';
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-view',
@@ -11,8 +13,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ViewComponent implements OnInit {
 
+    picture: Photos | undefined ;
     id: string = "";
     url: string = "";
+
+    form = new FormGroup({});
 
     constructor(private route: ActivatedRoute, private router: Router, private photosService: PhotosService, private _snackBar: MatSnackBar) {
 
@@ -26,10 +31,11 @@ export class ViewComponent implements OnInit {
 
         if (this.id) {
             this.url = this.photosService.getFavoritesUrlById(this.id);
+            this.picture = { id: this.id, url: this.url };
         }
     }
 
-    deleteFavorite(id: string): void {
+    onSubmit(id: string): void {
         if (id) {
             this.photosService.deleteFavorite(id);
             this._snackBar.open(

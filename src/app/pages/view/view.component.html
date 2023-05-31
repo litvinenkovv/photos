@@ -1,6 +1,14 @@
 <div class="container">
-    <img [src]="url" class="resize">
-    <p>
-        <button mat-raised-button color="warn" (click)="deleteFavorite(id)">Remove from favorites</button>
-    </p>
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="30px">
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile>
+            <app-picture [photo]="picture" [classCover]="false"></app-picture>
+        </mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+    </mat-grid-list>
+    <div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(picture!.id)">
+            <p><button mat-raised-button color="warn">Remove from favorites</button></p>
+        </form>
+    </div>
 </div>

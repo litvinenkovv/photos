@@ -1,11 +1,7 @@
 <div class="container">
     <mat-grid-list cols="3" rowHeight="1:1" gutterSize="30px">
         <mat-grid-tile *ngFor="let favorite of favorites">
-            <div class="block-inner">
-                <div class="image-container">
-                    <img [src]="favorite.url" class="picture" (click)="openPicture(favorite.id)">
-                </div>
-            </div>
+            <app-picture [photo]="favorite" [isOpenPicture]="true"></app-picture>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
